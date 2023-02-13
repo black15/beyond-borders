@@ -15,7 +15,10 @@ SECRET_KEY = 'django-insecure-+v1mhq!k$zf4tm0!9fyx&+n@(xir^f!vb9%ci_^6ve9z54!k)=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+]
 
 # Cors Origins
 CORS_ALLOWED_ORIGINS = [
@@ -83,15 +86,24 @@ DATABASES = {
     }
 }
 
+# AUTH USER MODEL 
+
+AUTH_USER_MODEL = 'api.CustomUser'
+
 # Rest Framework Config
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated'
+    ),
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend'
     ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication'
+    ),
 }
 
 # Password validation
