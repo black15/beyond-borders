@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'api',
+    'account',
     'rest_framework',
     'corsheaders',
     'rest_framework_simplejwt',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +90,7 @@ DATABASES = {
 
 # AUTH USER MODEL 
 
-AUTH_USER_MODEL = 'api.CustomUser'
+AUTH_USER_MODEL = 'account.Account'
 
 # Rest Framework Config
 
