@@ -35,14 +35,14 @@ class Account(AbstractBaseUser, PermissionsMixin):
    username = models.CharField(_("Username"), max_length=50, unique=True)
    first_name = models.CharField(_("First Name"), max_length=50)
    last_name  = models.CharField(_("Last Name"), max_length=50)
-   phone_number = PhoneNumberField(_("Phone Number"), null=False, blank=False, unique=True)
+   phone_number = PhoneNumberField(_("Phone Number"), unique=True)
    is_staff = models.BooleanField(_("is Staff"), default=False)
    is_active = models.BooleanField(_("is Active"), default=True)
    date_joined = models.DateField(_("Date Joined"), auto_now_add=True)
    user_type = models.PositiveSmallIntegerField(_("User Type"), choices=USER_TYPES, null=True)
    
    USERNAME_FIELD = "email"
-   REQUIRED_FIELDS = ["username", "first_name", "last_name",]
+   REQUIRED_FIELDS = ["username", "first_name", "last_name", "phone_number",]
 
    objects = AccountManager()
 
