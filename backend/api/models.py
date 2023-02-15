@@ -5,6 +5,7 @@ from unidecode import unidecode
 
 from account.models import Account
 
+# Categories can be added by admin only (Admin Panel)
 class Category(models.Model):
    name  = models.CharField(_("Name"), max_length=50, unique=True)
    slug  = models.SlugField(_("Slug"), null=True, blank=True)

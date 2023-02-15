@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'api',
     'account',
     'rest_framework',
+    'django_filters',
     'corsheaders',
     'rest_framework_simplejwt',
     'phonenumber_field',
@@ -96,7 +97,9 @@ AUTH_USER_MODEL = 'account.Account'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated'
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend'

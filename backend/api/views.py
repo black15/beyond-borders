@@ -1,3 +1,15 @@
-from django.shortcuts import render
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
+from .models import Item
+from .serializers import ItemSerializer
+from .permissions import IsItemCreatorOrReadOnly
 
-# Create your views here.
+class ItemsList(generics.ListCreateAPIView):
+   queryset           = Item.objects.filter(is_active=True)
+   serializer_class   = ItemSerializer
+   permission_classes = (AllowAny,)
+
+class ItemDetails(generics.RetrieveUpdateDestroyAPIView):
+   queryset = Item.objects.filter(is_active=True)
+   serializer_class   = ItemSerializer
+   permission_classes = [IsItemCreatorOrReadOnly,]
