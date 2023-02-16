@@ -31,6 +31,8 @@ class MyTokenObtainPairView(TokenObtainPairView):
 
    def post(self, request, *args, **kwargs):
       response = super().post(request, *args, **kwargs)
-      token = response.data["access"]
+      token    = response.data["access"]
+      refresh  = response.data["refresh"]
       response.set_cookie("account_token", token, httponly=True)
+      response.set_cookie("refresh_token", refresh, httponly=True)
       return response
