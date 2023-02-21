@@ -30,8 +30,8 @@ class Item(models.Model):
    is_active   = models.BooleanField(_("is Active"), default=False)
    createdAt   = models.DateTimeField(_("Created"), auto_now_add=True)
    updatedAt   = models.DateTimeField(_("Updated"), auto_now=True)
-   requester   = models.ForeignKey(Account, verbose_name=_("Requester"), on_delete=models.CASCADE)
-   category    = models.ForeignKey("Category", verbose_name=_("Category"), on_delete=models.CASCADE)
+   requester   = models.ForeignKey(Account, verbose_name=_("Requester"), related_name='accounts', on_delete=models.CASCADE)
+   category    = models.ForeignKey("Category", verbose_name=_("Category"), related_name='categories', on_delete=models.CASCADE)
 
    def __str__(self):
       return self.name
