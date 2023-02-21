@@ -1,12 +1,11 @@
 import { getAllItems } from '@/services'
 import Head from 'next/head'
-import Image from 'next/image'
 import { GetStaticProps } from 'next'
 import { InferGetStaticPropsType } from 'next'
 import Hero from '@/components/Hero'
+import Items from '@/components/Items'
 
 export default function Home({items}: InferGetStaticPropsType<typeof getStaticProps>) {
-  
   return (
     <>
       <Head>
@@ -17,6 +16,7 @@ export default function Home({items}: InferGetStaticPropsType<typeof getStaticPr
       </Head>
       <main>
         <Hero />
+        <Items items={items}/>
       </main>
     </>
   )

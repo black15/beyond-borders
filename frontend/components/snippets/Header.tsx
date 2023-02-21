@@ -1,30 +1,31 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 type Props = {}
 
 const Header = (props: Props) => {
   return (
-	<nav className="bg-gray-100">
-		<div className="mx-auto px-4 shadow-xl border-b border-gray-600">
+	<nav className="container mx-auto absolute left-0 right-0 top-0 z-10 w-full px-12 md:w-3/4">
+		<div className="mx-auto px-4">
 			<div className="flex justify-between">
 				<div className="flex space-x-7">
 					<div>
-						<a href="#" className="flex items-center py-4 px-2">
-							<Image src="https://tailwind-elements.com/img/logo.png" alt="Logo" width={50} height={50} className="h-8 w-8 mr-2" unoptimized />
-							<span className="font-semibold text-gray-500 text-lg">Navigation</span>
-						</a>
+						<Link href="/" className="flex items-center py-4 px-2">
+							{/* <Image src="" alt="Logo" width={50} height={50} className="h-8 w-8 mr-2" unoptimized /> */}
+							<h1 className="text-gray-100 text-2xl font-pacifico">BeyondBRDR</h1>
+						</Link>
 					</div>
 					<div className="hidden md:flex items-center space-x-1">
-						<a href="" className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold ">Home</a>
-						<a href="" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Services</a>
-						<a href="" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">About</a>
-						<a href="" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contact Us</a>
+						<Link href="" className="py-4 px-2 text-rose-600 border-b-4 border-rose-600 font-semibold ">Home</Link>
+						<Link href="" className="py-4 px-2 text-gray-100 font-semibold hover:text-rose-600 transition duration-300">Services</Link>
+						<Link href="" className="py-4 px-2 text-gray-100 font-semibold hover:text-rose-600 transition duration-300">About</Link>
+						<Link href="" className="py-4 px-2 text-gray-100 font-semibold hover:text-rose-600 transition duration-300">Contact Us</Link>
 					</div>
 				</div>
 				<div className="hidden md:flex items-center space-x-3 ">
-					<a href="" className="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300">Log In</a>
-					<a href="" className="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Sign Up</a>
+					<Link href="" className="py-2 px-2 font-medium text-gray-100 rounded hover:bg-rose-600 hover:text-white transition duration-300">Log In</Link>
+					<Link href="" className="py-2 px-2 font-medium text-white bg-rose-600 rounded hover:bg-rose-600 transition duration-300">Sign Up</Link>
 				</div>
 				<div className="md:hidden flex items-center">
 					<button className="outline-none mobile-menu-button">
@@ -45,10 +46,10 @@ const Header = (props: Props) => {
 		</div>
 		<div className="hidden mobile-menu">
 			<ul className="">
-				<li className="active"><a href="index.html" className="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Home</a></li>
-				<li><a href="#services" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Services</a></li>
-				<li><a href="#about" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">About</a></li>
-				<li><a href="#contact" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Contact Us</a></li>
+				<li className="active"><Link href="index.html" className="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Home</Link></li>
+				<li><Link href="#services" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Services</Link></li>
+				<li><Link href="#about" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">About</Link></li>
+				<li><Link href="#contact" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Contact Us</Link></li>
 			</ul>
 		</div>
 	</nav>

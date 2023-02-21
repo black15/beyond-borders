@@ -1,3 +1,4 @@
+import Footer from "./snippets/Footer";
 import Header from "./snippets/Header";
 
 type LayoutProps = {
@@ -9,6 +10,7 @@ type LayoutProps = {
 	  	<>
 			<Header />
 			{children}
+			<Footer />
 	  	</>
 
 	);

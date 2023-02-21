@@ -23,6 +23,7 @@
     "formik": "^2.2.9",
     "graphql-request": "^5.1.0",
     "js-cookie": "^3.0.1",
+    "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
     "next": "13.1.6",
     "next-superjson": "^0.0.4",

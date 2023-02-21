@@ -10,6 +10,12 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'poppins': ['Poppins',],
+      'fjalla': ['Fjalla',],
+      'lobster': ['Lobster',],
+      'pacifico': ['Pacifico', 'cursive'],
+    },
   },
   plugins: [],
 }
