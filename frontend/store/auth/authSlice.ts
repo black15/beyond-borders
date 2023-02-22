@@ -1,19 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import Cookies from 'js-cookie'
+import { AuthState } from './types'
+import { authUser } from '@/services'
+import jwt_decode from 'jwt-decode'
 
-export interface AuthState {
-   token: string | null,
-   is_authenticated: boolean,
-   user: {username: string | null},
-   error: string | null,
-   success: boolean
-}
+// const token = localStorage.getItem('access_token') ? localStorage.getItem('access_token') : null
 
 const initialState: AuthState = {
    token: null,
    is_authenticated: false,
-   user: {username: null},
+   user: null,
    error: null,
    success: false
 }
@@ -21,7 +17,24 @@ const initialState: AuthState = {
 const authSlice = createSlice({
    name: 'auth',
    initialState,
-   reducers: {}
+   reducers: {
+      loginuser: (state, action) => {
+         authUser(action.payload)
+         .then(res => {
+            if (res.access && res.refresh) {
+               state.token = res.access
+               state.success = true
+            }
+            else {
+               state.error = res.statusText
+            }
+         })
+      }
+   },
 })
+
+export const {loginuser, } = authSlice.actions
+
+export const selectToken = state => state.auth.token
 
 export default authSlice.reducer

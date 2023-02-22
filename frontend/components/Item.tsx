@@ -28,8 +28,8 @@ interface Props {
 
 const Item = ({name, slug, image, description, category, requester}: Props) => {	
 
-	console.log(Cookies.get());
-	
+	// const token = Cookies.get('access_token') || null
+	// console.log('ff', token);
 	
   	return (
 	 	<div className='flex flex-col items-center justify-center m-3 p-3 border rounded'>

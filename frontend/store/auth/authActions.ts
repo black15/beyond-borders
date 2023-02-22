@@ -1,6 +1,4 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const backend_url = process.env.DJANGO_API_BASE_URL
-
-// export const RegisterUser = createAsyncThunk()
+const DJANGO_API: string = process.env.NEXT_PUBLIC_DJANGO_API_BASE_URL!

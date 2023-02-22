@@ -5,8 +5,8 @@ export const store = configureStore({
    reducer: {
       auth: authSlice,
    },
-   devTools: process.env.NODE_ENV === 'development',
-   middleware: (getDefaultMiddleware) => getDefaultMiddleware({}).concat([]),
+   // devTools: process.env.NODE_ENV === 'development',
+   // middleware: (getDefaultMiddleware) => getDefaultMiddleware({}).concat([]),
 })
 
 export type RootState = ReturnType<typeof store.getState>

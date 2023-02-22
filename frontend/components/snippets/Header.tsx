@@ -6,8 +6,8 @@ type Props = {}
 
 const Header = (props: Props) => {
   return (
-	<nav className="container mx-auto absolute left-0 right-0 top-0 z-10 w-full px-12 md:w-3/4">
-		<div className="mx-auto px-4">
+	<nav className="w-full px-12 bg-gray-500">
+		<div className="mx-auto z-10 w-full md:w-3/4">
 			<div className="flex justify-between">
 				<div className="flex space-x-7">
 					<div>
