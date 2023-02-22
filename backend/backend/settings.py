@@ -26,7 +26,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 CORS_ORIGIN_ALLOW_ALL = True
-
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -105,8 +105,8 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-        # 'account.authenticate.CustomAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'account.authentication.CookieJWTAUTH',
     ),
 }
 
@@ -189,7 +189,7 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 
     # custom
-    'AUTH_COOKIE': 'account_token',  # Cookie name. Enables cookies if value is set.
+    'AUTH_COOKIE': 'access_token',  # Cookie name. Enables cookies if value is set.
     'AUTH_COOKIE_DOMAIN': None,     # A string like "example.com", or None for standard domain cookie.
     'AUTH_COOKIE_SECURE': False,    # Whether the auth cookies should be secure (https:// only).
     'AUTH_COOKIE_HTTP_ONLY' : True, # Http only cookie flag.It's not fetch by javascript.
