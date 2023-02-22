@@ -38,20 +38,15 @@ class CookieTokenRefreshSerializer(TokenRefreshSerializer):
 
 class MyTokenObtainPairView(TokenObtainPairView):
    
-   # serializer_class = MyTokenObtainPairSerializer
+   serializer_class = MyTokenObtainPairSerializer
 
-   # def post(self, request, *args, **kwargs):
-   #    response = super().post(request, *args, **kwargs)
-   #    token    = response.data["access"]
-   #    refresh  = response.data["refresh"]
-   #    response.set_cookie("access_token", token, httponly=True, max_age=settings.SIMPLE_JWT.get('ACCESS_TOKEN_LIFETIME').total_seconds(), samesite='Lax', secure=False)
-   #    response.set_cookie("refresh_token", refresh, httponly=True)
-   #    return response
-   def finalize_response(self, request, response, *args, **kwargs):
-      if response.data.get('refresh'):
-         response.set_cookie('refresh_token', response.data['refresh'], max_age=settings.SIMPLE_JWT.get('REFRESH_TOKEN_LIFETIME'), httponly=True)
-         del response.data['refresh']
-      return super().finalize_response(request, response, *args, **kwargs)
+   def post(self, request, *args, **kwargs):
+      response = super().post(request, *args, **kwargs)
+      token    = response.data["access"]
+      refresh  = response.data["refresh"]
+      response.set_cookie("access_token", token, httponly=True, max_age=settings.SIMPLE_JWT.get('ACCESS_TOKEN_LIFETIME').total_seconds(), samesite='Lax', secure=False)
+      response.set_cookie("refresh_token", refresh, httponly=True)
+      return response
 
 class CookieTokenRefreshView(TokenRefreshView):
    def finalize_response(self, request, response, *args, **kwargs):
